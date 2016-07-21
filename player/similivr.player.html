@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>simili.io Player</title>
+
+    <!--
+      This sample demonstrates how to render a 360 degree panoramic image in VR.
+    -->
+
+    <style>
+      #webgl-canvas {
+        box-sizing: border-box;
+        height: 100%;
+        left: 0;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    </style>
+
+    <style>
+      .similivr-button-togglevr {
+        bottom: 0;
+        right: 0;
+      }
+      .similivr-button-fullscreen{
+        top: 0;
+        right: 0;
+      }
+      .similivr-button-reset{
+        bottom: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+      var idOut = getParameterByName('id');
+      var userOut = getParameterByName('user');
+
+      var heightdiv = document.createElement('div');
+      //heightdiv.style.height = '300px';
+      //heightdiv.style.position = 'relative';
+      document.body.appendChild(heightdiv);
+
+      var containerdiv = document.createElement('div');
+      containerdiv.id='similivr-player-container-'+userOut+'-'+idOut;
+      heightdiv.appendChild(containerdiv);
+
+      var playerscript = document.createElement('script');
+      playerscript.src="similivr.player.js?id="+idOut+"&user="+userOut;
+      heightdiv.appendChild(playerscript);
+    </script>
+  </body>
+</html>
