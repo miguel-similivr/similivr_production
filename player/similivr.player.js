@@ -286,6 +286,9 @@
                 vrDisplay = displays[0];
                 $.get("player/getcontenturl.php", { id:contentId, user:contentUser }, function(res) { 
                   contentUrl = res;
+                  if (demoURL) {
+                    contentUrl = demoURL;
+                  }
                   init(true);
                 });
 
