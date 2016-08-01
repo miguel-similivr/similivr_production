@@ -18,6 +18,17 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style>
+      #webgl-canvas {
+        box-sizing: border-box;
+        height: 100%;
+        left: 0;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+  </style>
 
 </head>
 
@@ -26,17 +37,22 @@
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
   <input type="file" accept="image/*" onchange="loadFile(event)">
-	<img id="output" height="200" width="300"/>
-	<iframe id="demoplayer" src="player.html" height="200" width="300"style="border:none;" allowfullscreen></iframe>
+	<!--<img id="output" height="200" width="300"/>-->
+	<div id="demoplayer" style="height: 600px; position: relative;">
+      <div id="similivr-player-container-demo"></div>
+  </div>
+
 	<script type="text/javascript">
 		var demoUrl;
 	  var loadFile = function(event) {
-	    var output = document.getElementById('output');
-	    output.src = URL.createObjectURL(event.target.files[0]);
+	  	var demo = document.getElementById('demoplayer');
+	  	var demoscript = document.createElement('script');
+      demoscript.src="player/similivr.player.demo.js";
 	    demoUrl = URL.createObjectURL(event.target.files[0]);
-	    document.getElementById("demoplayer").contentWindow.init(true);
+	   	demo.appendChild(demoscript);
 	  };
 	</script>
+	
 	
 </body>
 

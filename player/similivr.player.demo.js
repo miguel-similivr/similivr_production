@@ -77,7 +77,7 @@
           // ================================================================
 
           // WebGL setup.
-          var playerContainer = document.getElementById("similivr-player-container-"+contentUser+"-"+contentId);
+          var playerContainer = document.getElementById("similivr-player-container-demo");
           var webglCanvas = document.getElementById("webgl-canvas");
           if (!webglCanvas) {
             webglCanvas = document.createElement("canvas");
@@ -115,7 +115,7 @@
           // WebVR-specific code begins here.
           // ================================
           function getButtonContainer () {
-            var buttonContainer = document.getElementById("similivr-player-container-"+contentUser+"-"+contentId);
+            var buttonContainer = document.getElementById("similivr-player-container-demo");
             return buttonContainer;
           }
 
@@ -284,10 +284,8 @@
             navigator.getVRDisplays().then(function (displays) {
               if (displays.length > 0) {
                 vrDisplay = displays[0];
-                $.get("player/getcontenturl.php", { id:contentId, user:contentUser }, function(res) { 
-                  contentUrl = res;
-                  init(true);
-                });
+                contentUrl = demoUrl;
+                init(true);
 
                 addButton("Fullscreen", "Z", null, "similivr-button-fullscreen", onSizeToggle);
 
