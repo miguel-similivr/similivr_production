@@ -1,12 +1,15 @@
 <?php
 include_once '../../includes/contentdb_connect.php';
 include_once '../../includes/content-config.php';
+include_once '../../includes/functions.php';
 
 require '../aws.phar';
 
 use Aws\S3\S3Client;
 
-$uploader = $_POST['username'];
+sec_session_start();
+
+$uploader = $_SESSION['username'];
 $uploadOk = 1;
 $input_error ="";
 
@@ -103,14 +106,11 @@ else {
 		  $insert_stmt->bind_param('ss', $uploader, $plainUrl);
 		  // Execute the prepared query.
 		  if (! $insert_stmt->execute()) {
-		  		//error line here
-		      header('Location: dashboard.php?error=301');
-			exit;
+	  		//error line here
+	      header('Location: dashboard.php?error=301');
+				exit;
 			}
-			unlink($target_file);
-			
 		}
-
 	}
 }
 header("Location: dashboard.php");

@@ -33,6 +33,7 @@ sec_session_start();
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="createcontentpanels.js"></script>
 
 </head>
 
@@ -77,17 +78,7 @@ sec_session_start();
     <div class="container">
       <div class="row">
         <?php echo '<h1 class="col-lg-12" style="text-align: center;">Hello '.$_SESSION['username'].'</h1>';?>
-        <form class="col-lg-5" action="upload_url.php" method="post" name="upload_url">             
-          <label>Paste a URL:</label><br><input type="text" name="url" id="url"/>
-          <input type="hidden" name="username" id="username" value="<?php echo $_SESSION['username'];?>"/>
-          <br>
-          <input class="btn" type="submit" value=" Add URL " name="submit">
-          <span class="error" id="url_error"></span>
-        </form>
-        <div class="col-lg-2">
-          <h3>OR</h3>
-        </div>
-        <form class="col-lg-4 col-lg-offset-1" action="upload_img.php" method="post" enctype="multipart/form-data">
+        <form class="col-lg-6" action="upload_img.php" method="post" enctype="multipart/form-data">
           <label>Upload an image: </label>
           <input type="file" name="fileToUpload" id="fileToUpload">
           <input type="hidden" name="username" id="username" value="<?php echo $_SESSION['username'];?>"/>
@@ -95,9 +86,16 @@ sec_session_start();
           <span class="error" id="img_error"></span>
         </form>
       </div>
-      <div class="row" id="testshowimg">
+      <div class="row" id="contentcontainer">
           <?php include('showimages.php'); ?>
-        </div>
+          <script type="text/javascript">
+          var objects = <?php echo json_encode($contentarray);?>;
+          for (var p in objects) {
+            createcontentpanel(objects[p]);
+          }
+          </script>
+          
+      </div>
     </div>
         <!-- /#page-content-wrapper -->
       <!-- /#wrapper -->
