@@ -72,6 +72,11 @@ include_once '../../includes/functions.php';
                         <input type="password" name="confirmpwd" placeholder="Confirm Password..." class="form-password form-control" id="confirmpwd">
                         <p>Your password and confirmation must match exactly.</p>
                     </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="agreetoterms"></label>
+                        <input type="checkbox" name="agreetoterms" class="form-control" id="agreetoterms">
+                        <p>I have read and agreed to the simili.io <a href="../terms_of_service.html">Terms of Service</a> and <a href="../privacy_policy.html">Privacy Policy.</a></p>
+                    </div>
                     <input type="button" class="btn" value="Register" onclick="return regformhash(this.form,this.form.username,
                         this.form.email,this.form.password,this.form.confirmpwd);" />
                   </form>
