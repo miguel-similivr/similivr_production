@@ -10,7 +10,7 @@ if (login_check($mysqli) == true) {
     $logged = 'out';
 }
 
-header('Location: login/login.php');
+header('Location: http://try.simili.io/');
 ?>
 <!DOCTYPE html>
 <html>
