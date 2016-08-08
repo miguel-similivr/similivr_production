@@ -15,7 +15,7 @@ function formhash(form, password) {
     form.submit();
 }
  
-function regformhash(form, uid, email, password, conf) {
+function regformhash(form, uid, email, password, conf, agreetoterms) {
      // Check each field has a value
     if (uid.value == ''         || 
           email.value == ''     || 
@@ -57,6 +57,13 @@ function regformhash(form, uid, email, password, conf) {
     if (password.value != conf.value) {
         alert('Your password and confirmation do not match. Please try again');
         form.password.focus();
+        return false;
+    }
+
+    // Check if users agree to Terms of Service and Privacy Policy
+    if (agreetoterms.checked == false) {
+        alert('You must agree to the simili.io Terms of Service and Privacy Policy. Please try again');
+        form.agreetoterms.focus();
         return false;
     }
  

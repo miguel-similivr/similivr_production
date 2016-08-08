@@ -107,7 +107,7 @@ include_once '../../includes/functions.php';
                         <p>I have read and agreed to the simili.io <a href="../terms_of_service.html">Terms of Service</a> and <a href="../privacy_policy.html">Privacy Policy.</a></p>
                     </div>
                     <input type="button" class="btn" value="Register" onclick="return regformhash(this.form,this.form.username,
-                        this.form.email,this.form.password,this.form.confirmpwd);" />
+                        this.form.email,this.form.password,this.form.confirmpwd,this.form.agreetoterms);" />
                   </form>
                 </div>
                 </div>
