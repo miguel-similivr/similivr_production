@@ -27,6 +27,8 @@
   	outputError("img_error","Error 101: The file you are trying to upload is not an image.");
   } else if (error_code == '102') {
   	outputError("img_error","Error 102: The image you are trying to upload is not in 2:1 aspect ratio.");
+  } else if (error_code == '100') {
+    outputError("img_error","Error 100: The image you are trying to upload is too large (max 10mb).");
   } else if (error_code == '201') {
   	outputError("url_error","Error 201: The URL you entered is invalid.");
   } else if (error_code == '401') {

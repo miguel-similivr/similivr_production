@@ -41,6 +41,8 @@ if(isset($_POST["submit"])) {
 if ($_FILES["fileToUpload"]["size"] > 10000000) {
     //File is too large;
     $uploadOk = 0;
+    header("Location: dashboard.php?error=100");
+    exit;
 }
 
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -49,7 +51,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     $uploadOk = 0;
     header("Location: dashboard.php?error=101");
     exit;
-} else {
+} /*else {
 		try {
 			$ratio = $upload_width / $upload_height;
 			if ($ratio != 2) {
@@ -64,7 +66,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 			header("Location: dashboard.php?error=102");
 			exit;
 		}
-}
+}*/
 
 if ($cur_stmt = $contentmysqli->prepare("SELECT COUNT(*) FROM contenturl WHERE username=?")){
   $cur_stmt->bind_param('s', $_SESSION['username']);

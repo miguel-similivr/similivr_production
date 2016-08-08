@@ -83,7 +83,7 @@ if (login_check($mysqli) == true) {
           </div>
         </div>
       </div>
-        
+      <p>Don't have an account? Click here to go to our <a href="../register/register.php">registration page</a>.</p>
     </div>
 
 
