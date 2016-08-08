@@ -6,6 +6,7 @@ sec_session_start();
  
 if (login_check($mysqli) == true) {
     $logged = 'in';
+    header('Location: ../dashboard/dashboard.php');
 } else {
     $logged = 'out';
 }
@@ -20,7 +21,7 @@ if (login_check($mysqli) == true) {
     <title>Login to simili.io</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
 		<link rel="stylesheet" href="../css/form-elements.css">

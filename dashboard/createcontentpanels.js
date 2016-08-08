@@ -1,14 +1,52 @@
-function createcontentpanel(contentobject) {
+var ispreviewing = false;
+
+function createiframe(url, previewbtnelement) {
+	if (ispreviewing == false) {
+		var iframediv = document.createElement('div');
+		iframediv.className = "col-lg-12";
+		iframediv.id = "iframediv";
+
+		var iframe = document.createElement('iframe');
+		iframe.src = url;
+		//iframe.height = "600px";
+		iframe.width = "100%";
+		iframe.style.border = "none";
+		iframe.style.display = "block";
+		iframe.setAttribute('allowFullScreen', '');
+
+		previewbtnelement.appendChild(iframediv);
+		iframediv.appendChild(iframe)
+
+		ispreviewing = true;
+	} else  {
+		document.getElementById("iframediv").remove();
+		ispreviewing = false;
+
+		if (document.getElementById("iframediv").src == url) {
+			return;
+		} else {
+			createiframe(url, previewbtnelement);
+		}
+	}
+}
+
+function createsharelinks(contentbody, playerlink, embed) {
+	contentbody.appendChild(playerlink);
+	contentbody.appendChild(embed);
+}
+
+function createcontentpanel(contentobject, index) {
 	var contentcontainer = document.getElementById("contentcontainer");
 	var contentdiv = document.createElement("div");
-	contentdiv.className = "row panel panel-default";
+	contentdiv.className = "card col-lg-12 col-xs-12"//"row panel panel-default";
+	contentdiv.id = "content-"+index.toString();
 
 	var thumbnail = document.createElement("div");
-	thumbnail.className = "col-lg-3 col-xs-12 thumb";
+	thumbnail.className = "col-lg-12 col-xs-12 thumb card-img-top";
 	thumbnail.innerHTML = "<img class='img-responsive' src='" + contentobject.contentobjecturl + "'/>";
 
-	var text = document.createElement("div");
-	text.className = "col-lg-8 col-xs-10 col-xs-offset-1 textcontent";
+	var contentbody = document.createElement("div");
+	contentbody.className = "col-lg-12 col-xs-12 textcontent card-block";
 
 	var url = document.createElement("p");
 	url.innerHTML =  "Source: <a href=" + contentobject.contentobjecturl + ">" + contentobject.contentobjecturl +"</a>";
@@ -27,7 +65,7 @@ function createcontentpanel(contentobject) {
 
 	var deletebtn  = document.createElement("input");
 	deletebtn.name = "deletebtn";
-	deletebtn.className = "btn";
+	deletebtn.className = "btn delete";
 	deletebtn.value = "Delete";
 	deletebtn.type = "submit";
 
@@ -43,15 +81,34 @@ function createcontentpanel(contentobject) {
 	deleteid.id = "deleteid";
 	deleteid.value = contentobject.contentobjectid;
 	deleteid.type = "hidden";
+
+	var previewbtn  = document.createElement("button");
+	previewbtn.id = "previewbtn-"+index.toString();
+	previewbtn.className = "btn preview";
+	previewbtn.onclick = function(){createiframe(playerurl, contentdiv)};
+	previewbtn.innerHTML = "Preview";
+
+	var sharebtn  = document.createElement("button");
+	sharebtn.id = "sharebtn-"+index.toString();
+	sharebtn.className = "btn share";
+	sharebtn.innerHTML = "Share";
+	sharebtn.onclick = function(){createsharelinks(contentbody, playerlink, embed)};
 	
 	contentcontainer.appendChild(contentdiv);
 	contentdiv.appendChild(thumbnail);
-	contentdiv.appendChild(text);
-	text.appendChild(url);
-	text.appendChild(playerlink);
-	text.appendChild(embed);
-	thumbnail.appendChild(deleteform);
+	contentdiv.appendChild(contentbody);
+	//text.appendChild(url);
+	contentbody.appendChild(deleteform);
+	//contentbody.appendChild(previewbtn);
+	//contentbody.appendChild(sharebtn);
+	contentbody.appendChild(playerlink);
+	contentbody.appendChild(embed);
 	deleteform.appendChild(deletebtn);
 	deleteform.appendChild(deletefile);
 	deleteform.appendChild(deleteid);
+	
+
+	$("#"+previewbtn.id).on('touchstart', function(){
+		createiframe(playerurl, contentdiv);
+	});
 }

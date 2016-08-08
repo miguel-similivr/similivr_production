@@ -66,6 +66,27 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 		}
 }
 
+if ($cur_stmt = $contentmysqli->prepare("SELECT COUNT(*) FROM contenturl WHERE username=?")){
+  $cur_stmt->bind_param('s', $_SESSION['username']);
+  $cur_stmt->execute();
+  $cur_stmt->bind_result($currentuploads);
+  while ($cur_stmt->fetch()) {
+  }
+}
+
+if ($max_stmt = $contentmysqli->prepare("SELECT maxuploads FROM uploadlimit WHERE username=?")){
+  $max_stmt->bind_param('s', $_SESSION['username']);
+  $max_stmt->execute();
+  $max_stmt->bind_result($maxuploads);
+  while ($max_stmt->fetch()) {
+  }
+}
+
+if ($currentuploads+1>$maxuploads) {
+	$uploadOk = 0;
+	header("Location: dashboard.php?error=401");
+	exit;
+}
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {

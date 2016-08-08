@@ -29,5 +29,7 @@
   	outputError("img_error","Error 102: The image you are trying to upload is not in 2:1 aspect ratio.");
   } else if (error_code == '201') {
   	outputError("url_error","Error 201: The URL you entered is invalid.");
+  } else if (error_code == '401') {
+    outputError("img_error","Error 401: Maximum uploads reached.");
   }
 })();

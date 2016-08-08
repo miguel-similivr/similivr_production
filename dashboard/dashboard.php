@@ -4,6 +4,13 @@ include_once '../../includes/upload_url.inc.php';
 include_once '../../includes/functions.php';
  
 sec_session_start();
+
+//if ($select_stmt = $contentmysqli->prepare("SELECT maxuploads FROM uploadlimit WHERE username=?")){
+//  $select_stmt->bind_param('s', $_SESSION['username']);
+//  $select_stmt->execute();
+//  $select_stmt->bind_result($maxuploads);
+//  $select_stmt->fetch();
+//}
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +30,7 @@ sec_session_start();
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link href="../css/sidebar.css" rel="stylesheet">
     <link href="../css/dashboard-style.css" rel="stylesheet">
 
@@ -34,6 +41,7 @@ sec_session_start();
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="createcontentpanels.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 </head>
 
@@ -56,7 +64,7 @@ sec_session_start();
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-            <img src="../images/simili_header.png" alt="brand" style="border: none;" >
+            <img src="../images/simili_io_logo_v2.png" alt="brand" style="border: none; padding: 5px;" >
           </a>
         </div>
 
@@ -78,12 +86,13 @@ sec_session_start();
     <div class="container">
       <div class="row">
         <?php echo '<h1 class="col-lg-12" style="text-align: center;">Hello '.$_SESSION['username'].'</h1>';?>
+        <?php include('getmax.php');?>
         <form class="col-lg-6" action="upload_img.php" method="post" enctype="multipart/form-data">
           <label>Upload an image: </label>
           <input type="file" name="fileToUpload" id="fileToUpload">
           <input type="hidden" name="username" id="username" value="<?php echo $_SESSION['username'];?>"/>
           <input class="btn" type="submit" value="Upload Image" name="submit">
-          <span class="error" id="img_error"></span>
+          <h3 class="error" id="img_error"></h3>
         </form>
       </div>
       <div class="row" id="contentcontainer">
@@ -91,7 +100,7 @@ sec_session_start();
           <script type="text/javascript">
           var objects = <?php echo json_encode($contentarray);?>;
           for (var p in objects) {
-            createcontentpanel(objects[p]);
+            createcontentpanel(objects[p], p);
           }
           </script>
           
@@ -101,7 +110,7 @@ sec_session_start();
       <!-- /#wrapper -->
 
       <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
