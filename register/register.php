@@ -11,9 +11,11 @@ include_once '../../includes/functions.php';
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- CSS -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:200,400" type="text/css">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Dosis:200,400" type="text/css">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/dashboard-style.css">
+        <link rel="stylesheet" href="../css/sidebar.css">
         <link rel="stylesheet" href="../css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/form-elements.css">
         <link rel="stylesheet" href="../css/loginreg-style.css">
@@ -28,6 +30,33 @@ include_once '../../includes/functions.php';
             echo $error_msg;
         }
         ?>
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img src="../images/simili_io_logo_v2.png" alt="brand" style="border: none; padding: 5px;" >
+              </a>
+            </div>
+
+            
+                <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="../contact/contact.html">Contact Us</a></li>
+                <li><a href="../register/register.php">Sign Up</a></li>
+                <li><a href="../login/login.php">Log In</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav> <!-- /end of nav -->
+
         <div class="top-content">
           <div class="inner-bg">
             <div class="container">
@@ -85,9 +114,18 @@ include_once '../../includes/functions.php';
               </div>
             </div>
             <p>Already registered? Click here to go to our <a href="../login/login.php">login page</a>.</p>
+            <footer>
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <p>Copyright &copy; Simili Virtual Reality Inc. 2016</p>
+                    <p><a href="../terms_of_service.html">Terms of Service</a></p>
+                    <p><a href="../privacy_policy.html">Privacy Policy</a></p>
+                  </div>
+                </div>
+              </div>
+            </footer>
           </div>
-          
         </div>
-        
     </body>
 </html>

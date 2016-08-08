@@ -23,6 +23,8 @@ if (login_check($mysqli) == true) {
     <!-- CSS -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/dashboard-style.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
 		<link rel="stylesheet" href="../css/form-elements.css">
     <link rel="stylesheet" href="../css/loginreg-style.css">
@@ -50,9 +52,34 @@ if (login_check($mysqli) == true) {
   </head>
 
   <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img src="../images/simili_io_logo_v2.png" alt="brand" style="border: none; padding: 5px;" >
+              </a>
+            </div>
+
+            
+                <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="../contact/contact.html">Contact Us</a></li>
+                <li><a href="../register/register.php">Sign Up</a></li>
+                <li><a href="../login/login.php">Log In</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav> <!-- /end of nav -->
       <!-- Top content -->
     <div class="top-content">
-    	
       <div class="inner-bg">
         <div class="container">
           <div class="row">
@@ -82,10 +109,20 @@ if (login_check($mysqli) == true) {
             </div>
           </div>
         </div>
+        <p>Don't have an account? Click here to go to our <a href="../register/register.php">registration page</a>.</p>
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <p>Copyright &copy; Simili Virtual Reality Inc. 2016</p>
+                <p><a href="../terms_of_service.html">Terms of Service</a></p>
+                <p><a href="../privacy_policy.html">Privacy Policy</a></p>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
-      <p>Don't have an account? Click here to go to our <a href="../register/register.php">registration page</a>.</p>
     </div>
-
 
       <!-- Javascript -->
       <script src="assets/js/jquery-1.11.1.min.js"></script>

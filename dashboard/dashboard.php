@@ -119,6 +119,18 @@ sec_session_start();
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Copyright &copy; Simili Virtual Reality Inc. 2016</p>
+            <p><a href="../terms_of_service.html">Terms of Service</a></p>
+            <p><a href="../privacy_policy.html">Privacy Policy</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 
   <?php endif; ?>
