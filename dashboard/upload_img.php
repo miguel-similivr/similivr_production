@@ -131,6 +131,7 @@ else {
 	      header('Location: dashboard.php?error=301');
 				exit;
 			}
+			unlink($target_file);
 		}
 	}
 }
