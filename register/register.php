@@ -88,13 +88,12 @@ include_once '../../includes/functions.php';
                     <div class="form-group">
                         <label class="sr-only" for="email">Username</label>
                         <input type="text" name="email" placeholder="Email Address..." class="form-username form-control" id="email">
-                        <p>Emails must have a valid email format</p>
+                        <p>Emails must have a valid email format.</p>
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="password">Password</label>
                         <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="password">
-                        <p>Passwords must be at least 6 characters long and must contain at least one uppercase letter (A..Z), 
-                        at least one lowercase letter (a..z) and at least one number (0..9).</p>
+                        <p>Passwords must be at least 6 characters long.</p>
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="password">Password</label>
