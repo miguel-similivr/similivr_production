@@ -62,7 +62,7 @@ if (login_check($mysqli) == true) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="http://try.simili.io/">
+              <a class="navbar-brand" href="https://simili.io/">
                 <img src="../images/simili_io_logo_v2.png" alt="brand" style="border: none; padding: 5px;" >
               </a>
             </div>
