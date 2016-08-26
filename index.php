@@ -1,6 +1,6 @@
     
 <?php require("functions.php"); ?>
-<?php insertTitle(["title" => "Techie Studios"]); ?>    
+<?php insertTitle(["title" => "simili.io"]); ?>    
 
     <div id="header">
         <div class="container"> 
@@ -8,8 +8,8 @@
                 <img id="logo" src="img/40a9c445-simili-io-logo-v2_05901n05901n000000.png" alt width="auto" height="auto"/>
             </div>
             <div class="col-lg-3 col-xs-7 buttons" >
-                <a type="button" class="btn-lg btn-primary"  role="button" href="clkg/https/simili.io/login/login.php">sign in</a>    
-                <a type="button" class="btn-lg btn-warning" role="button" href="clkg/https/simili.io/register/register.php">sign up</a>
+                <a type="button" class="btn-lg btn-primary"  role="button" href="https://simili.io/login/login.php">sign in</a>    
+                <a type="button" class="btn-lg btn-warning" role="button" href="https://simili.io/register/register.php">sign up</a>
             </div>
          </div>
     </div>
@@ -106,7 +106,7 @@
                 <p>Just click on the button below to choose an image you want to VR-ize. For best results, use a 2:1 spherical panorama.</p>
 
 
-                <iframe src="https://simili.io/demo.html" style="border:none; height: 50%; width: 50%;" allowfullscreen></iframe>
+                <iframe src="https://simili.io/demo.html" style="border:none; height: 450px; width: 100%;" allowfullscreen scrolling="no"></iframe>
 
             </div>
         
@@ -123,7 +123,7 @@
             <h1>simili.io is now in Open Beta!</h1>
             <p>Sign up now and get 5 free VR conversions. Need more? Don't worry, we'll keep you posted on how to boost your upload limit!
             </p>
-             <a type="button" class="btn-lg btn-warning" role="button" href="clkg/https/simili.io/register/register.php">sign up</a>    
+             <a type="button" class="btn-lg btn-warning" role="button" href="https://simili.io/register/register.php">sign up</a>    
         </div>
         <div class="col-lg-3"></div>
     </div>
