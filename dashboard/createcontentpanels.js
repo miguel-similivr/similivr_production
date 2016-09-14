@@ -43,7 +43,7 @@ function createcontentpanel(contentobject, index) {
 
 	var thumbnail = document.createElement("div");
 	thumbnail.className = "col-lg-12 col-xs-12 thumb card-img-top";
-	thumbnail.innerHTML = "<img class='img-responsive' src='" + contentobject.contentobjecturl + "'/>";
+	thumbnail.innerHTML = "<img class='img-responsive' crossorigin='anonymous' src='" + contentobject.contentobjecturl + "'/>";
 
 	var contentbody = document.createElement("div");
 	contentbody.className = "col-lg-12 col-xs-12 textcontent card-block";
